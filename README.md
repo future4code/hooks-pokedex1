@@ -6,7 +6,7 @@ Nome dos integrantes 👥:
 - Mizael Santos
 - Verônica Cruz
 
-Link do Surge: www.link.com.br
+Link do Surge: ashamed-corn.surge.sh
 
 O que funciona 🤩:
 - Estilização
