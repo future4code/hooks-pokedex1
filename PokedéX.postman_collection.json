@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "de130499-5919-451a-9e1b-9e596e6353f8",
+		"name": "PokedéX",
+		"description": "Collection da API [pokeapi](https://pokeapi.co/).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21027146"
+	},
+	"item": [
+		{
+			"name": "Get pokemóns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Pega os nomes dos pokemóns dentro de um limite numérico. Através do 'offset', apresentará pokemóns a partir da posição do id determinada nesse parâmetro."
+			},
+			"response": []
+		},
+		{
+			"name": "Get pokemón details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/:id",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete pokemón",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/:id",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
