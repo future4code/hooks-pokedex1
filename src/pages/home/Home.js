@@ -1,4 +1,3 @@
-import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import PokeCard from "../../components/pokeCard/PokeCard";
 import { Body, Container } from "./styleHome";
@@ -10,7 +9,7 @@ const Home = () => {
     
     return (
         <Container>
-            <Header title='POKEMONS' img={pokebolaIcon} goToScreen={goToPokedexScreen}/>
+            <Header title='Lista de POKÉMONS' imgIcon={pokebolaIcon} goToScreen={goToPokedexScreen}/>
             <Body>
                 <PokeCard buttonName={nameButton}/>
                 <PokeCard buttonName={nameButton}/>
@@ -22,7 +21,6 @@ const Home = () => {
                 <PokeCard buttonName={nameButton}/>
                 <PokeCard buttonName={nameButton}/>
             </Body>
-            <Footer/>
         </Container>
     );
 };
