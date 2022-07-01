@@ -7,28 +7,24 @@ import { Container, DivStat, DivStats, DivTeste, ImgBack, Div, Body, DivTypes, D
 import pokemonIcon from '../../imgs/pokemon-icon.png';
 import pokebolaClosed from '../../imgs/pokebola-closed.png';
 import pokebolaOpened from '../../imgs/pokebola-opened.png';
+import { useParams } from "react-router-dom";
+import { useRequestData } from "../../hooks/useRequestData";
 
 
 const PokemonDetails = () => {
-    const [openPokebola, setOpenPokebola] = useState(false)
-    const [pokemon, setPokemon] = useState({})
+    // const [openPokebola, setOpenPokebola] = useState(false)
+    // const [pokemon, setPokemon] = useState({})
+    const { id } = useParams()
+    //const pathParams = useParamas()
+    //pathParams.id
 
-    useEffect(() => {
-        getPokemon()
-    }, [])
+    const pokemon = useRequestData(`${BASE_url}pokemon/${id}`)
 
-    const getPokemon = () => {
-        axios.get(`${BASE_url}/pokemon/39/`)
-            .then(res => {
-                console.log(res.data)
-                setPokemon(res.data)
-            })
-            .catch(err => console.log(err))
-    }
+    console.log(pokemon)
 
     return (
         <Container>
-            <Header title={pokemon.name} imgIcon={pokemonIcon}
+            <Header title={pokemon?.name} imgIcon={pokemonIcon}
                 goToScreen={goToPokemonListScreen} addOrRemove={goToPokedexScreen} />
 
             <Body>
@@ -37,11 +33,11 @@ const PokemonDetails = () => {
                 : <img onClick={() => setOpenPokebola(false)} src={pokebolaOpened} alt='' />
             } */}
 
-                <ImgBack srcFront={pokemon.sprites?.front_default} srcBack={pokemon.sprites?.back_default} />
+                <ImgBack srcFront={pokemon?.sprites.front_default} srcBack={pokemon?.sprites.back_default} />
 
                 <DivStats>
                     <h2>Poderes</h2>
-                    {pokemon.stats?.map((stats, index) => {
+                    {pokemon?.stats.map((stats, index) => {
                         return <DivStat key={index} >
                             <p>{stats.stat.name}</p>
                             <DivTeste><Div sizeDiv={stats.base_stat} ></Div><p>{stats.base_stat}</p></DivTeste>
@@ -51,7 +47,7 @@ const PokemonDetails = () => {
                 <Div2>
                     <DivTypes>
                         <h2>Tipos</h2>
-                        {pokemon.types?.map((type, index) => {
+                        {pokemon?.types.map((type, index) => {
                             return <div key={index} >
                                 <p>{type.type.name}</p>
                             </div>
@@ -60,7 +56,7 @@ const PokemonDetails = () => {
 
                     <DivAbilities>
                         <h2>Principais Ataques</h2>
-                        {pokemon.abilities?.map((ability, index) => {
+                        {pokemon?.abilities.map((ability, index) => {
                             return <div key={index} >
                                 <p>{ability.ability.name}</p>
                             </div>

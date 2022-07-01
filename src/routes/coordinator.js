@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 export const goToPokemonListScreen = (navigate) =>{
     navigate('/')
 }
@@ -6,6 +8,6 @@ export const goToPokedexScreen = (navigate) =>{
     navigate('/pokedex')
 }
 
-export const goToPokemonDetailsScreen = (navigate) =>{
-    navigate('/details')
+export const goToPokemonDetailsScreen = (navigate, id) =>{
+    navigate(`/details/${id}`)
 }
