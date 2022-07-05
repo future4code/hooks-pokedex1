@@ -13,9 +13,8 @@ export const GlobalState = (props) => {
     }, [pokedex])
 
 
-
     const getPokemonList = () => {
-        axios.get(`${BASE_url}/pokemon?limit=20`)
+        axios.get(`${BASE_url}/pokemon?offset=20&limit=20`)
       .then(res => {
         getPokemonListChecked(res.data.results)
         // console.log(res.data.results)
@@ -25,34 +24,39 @@ export const GlobalState = (props) => {
       })
     }
 
-
     const getPokemonListChecked = (list) => { //list => name e url
         const updatePokemonList = list?.filter(pokemon =>{
-
             const find = pokedex?.find(url => { //verifica se achou o pokemon na pokedex
                 if(pokemon.url  === url){
-                    // console.log('TEM NA POKEDEX')
                     return true
                 }})
             if(!find){ //se nao achou na pokedex
                 return pokemon
             }
-
         })
         setPokemonList(updatePokemonList)
-        // console.log('updateList', updatePokemonList)
-        // console.log('pokedexList', pokedex)
     }
 
     const addPokemon = (url) => {
         const newPokedex = [...pokedex, url]
         setPokedex(newPokedex)
-        console.log('pokedex', pokedex)
     }
 
 
+    const removePokemon = (urlPokemon) => {
+        const newPokedex = [...pokedex]
+        const index = newPokedex.findIndex((url, index) => {
+            if(url === urlPokemon){
+                return index
+            }
+        })
+        newPokedex.splice(index, 1)
+        setPokedex(newPokedex)
+    }
 
-    return <GlobalStateContext.Provider value={{pokemonList, pokedex, addPokemon}}>
+
+    return <GlobalStateContext.Provider 
+    value={{pokemonList, pokedex, addPokemon, removePokemon}}>
         {props.children}
     </GlobalStateContext.Provider>
 }

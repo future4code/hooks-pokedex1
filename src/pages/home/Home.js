@@ -1,5 +1,5 @@
 import Header from "../../components/header/Header";
-import PokeCard from "../../components/pokeCard/PokeCard";
+import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import { Body, Container } from "./styleHome";
 import pokebolaIcon from '../../imgs/pokedex-icon.png';
 import { goToPokedexScreen } from "../../routes/coordinator";
@@ -11,25 +11,18 @@ import { useContext, useState } from "react";
 import GlobalStateContext from "../../global/GlobalStateContext";
 
 const Home = () => {
-    const nameButton= "Adicionar"
     // const [openPokebola, setOpenPokebola] = useState(false)
     const {pokemonList} = useContext(GlobalStateContext)
-    
-    //pokemonList && pokemonList.results
-    // console.log(pokemonList?.results)
 
-    const renderPokemon = pokemonList.map(pokemon => {
-        return <PokeCard key={pokemon.url} buttonName={nameButton} url={pokemon.url} />
+    const renderPokemonList = pokemonList.map(pokemon => {
+        return <PokemonCard key={pokemon.url} url={pokemon.url} />
     })
 
     return (
         <Container>
             <Header title='Lista de POKÉMONS' imgIcon={pokebolaIcon} goToScreen={goToPokedexScreen}/>
             <Body>
-                {/* {!openPokebola 
-                ? <img onClick={() => setOpenPokebola(true)} src={pokebolaClosed} alt='' />
-                : <img onClick={() => setOpenPokebola(false)} src={pokebolaOpened} alt='' />} */}
-                {renderPokemon}
+                {renderPokemonList}
             </Body>
         </Container>
     );
