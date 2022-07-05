@@ -1,36 +1,38 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
-    outline: 1px solid transparent;
-    overflow: hidden;
-    /* border-radius: 20px; */
-    background-color: #333333;
-    color: silver;
-    padding-top: 10px;
-    margin: 2px;
     width: 100vw;
-    min-height: 100vh;
-    /* display: grid; */
-    /* grid: 2fr 1fr 1fr / 1fr;
-    justify-items: center;
-    align-content: flex-start; */
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+`
 
-    &:hover{
-        box-shadow: rgba(224, 224, 224, 0.3) 0px 48px 100px 0px;
+export const Body = styled.div`
+    background-color: #1C1C1C;
+    color: silver;
+    width: 100%;
+    min-height: 84vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+    img{
+        /* width: 350px; */
     }
 
     @media only screen and (min-width: 768px){
-        width: 100vw;
-        min-height: 100vh;
-        padding-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
 `
+
 
 export const ImgBack = styled.div`
     /* border: 1px solid red; */
@@ -44,6 +46,8 @@ export const ImgBack = styled.div`
     animation-duration: 6s;
     animation-iteration-count: 5;
     animation-timing-function: ease;
+    transition: 0.3s all; //dica 
+
 
     //animação apenas no modo mobile
     @media only screen and (max-width: 767px){
@@ -51,13 +55,14 @@ export const ImgBack = styled.div`
         0% {background-image: url(${props => props.srcFront});}
         50% {background-image: url(${props => props.srcBack});}
         100% {background-image: url(${props => props.srcFront});}
-    }
+        }
     }
 
     // Tela grande
     @media only screen and (min-width: 768px){
         background-repeat: no-repeat;
         background-size: cover;
+        cursor: pointer;
 
         &:hover{
         background-image: url(${props => props.srcBack});
@@ -107,4 +112,35 @@ export const Div = styled.div`
     width: ${props => ((props.sizeDiv*100)/200)}%;
 `
 
-//
+
+
+export const Div2 = styled.div`
+    padding-top: 10px;
+    /* border: 1px solid blue; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+`
+
+
+// TYPES
+export const DivTypes = styled.div`
+    /* border: 1px solid blue; */
+    /* width: 380px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+`
+
+// ABILITIES
+export const DivAbilities = styled.div`
+    /* border: 1px solid blue; */
+    /* width: 380px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+`

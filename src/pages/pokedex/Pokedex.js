@@ -1,4 +1,3 @@
-import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import { Body, Container } from "./stylePokedex";
 import pokemonIcon from '../../imgs/pokemon-icon.png';
@@ -10,13 +9,12 @@ const Pokedex = () => {
 
     return (
         <Container>
-            <Header title='POKEDEX' img={pokemonIcon} goToScreen={goToPokemonListScreen} />
+            <Header title='Minha POKÉDEX' imgIcon={pokemonIcon} goToScreen={goToPokemonListScreen} />
             <Body>
                 <PokeCard buttonName={nameButton} />
                 <PokeCard buttonName={nameButton} />
                 <PokeCard buttonName={nameButton} />
             </Body>
-            <Footer/>
         </Container>
     );
 };

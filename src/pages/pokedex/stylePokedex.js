@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    width: 100vw;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,9 +11,8 @@ export const Container = styled.div`
 
 export const Body = styled.div`
     background-color: #1C1C1C;
-    padding: 5px 0;
-    width: 100vw;
-    min-height: 90vh;
+    width: 100%;
+    min-height: 84vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
