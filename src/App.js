@@ -6,6 +6,7 @@ import { Container } from './style';
 function App() {
   return (
     <Container>
+      
       <GlobalStyle />
       <Router />
       <Footer />
