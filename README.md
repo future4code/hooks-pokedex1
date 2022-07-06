@@ -11,6 +11,10 @@ Link do Surge: https://fancy-learning.surge.sh
 O que funciona 🤩:
 - Estilização
 - Rotas
+- Botão de adicionar 
+- Botão de remover 
+- Input de pesquisa
+- Requisição
 
 O que não funciona 🤧: 
 - Adição de pokemóns a pokedéx
