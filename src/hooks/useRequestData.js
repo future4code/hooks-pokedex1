@@ -9,6 +9,7 @@ export const useRequestData = (url) => {
       axios.get(url)
       .then(res => {
         setData(res.data)
+        // console.log(res.data.results)
       })
       .catch(err => {
         console.log(err)

@@ -87,7 +87,7 @@ export const DivStat = styled.div`
     height: 22px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
 `
 
@@ -108,6 +108,7 @@ export const DivTeste = styled.div`
 
 export const Div = styled.div`
     background-color: pink;
+    border-radius: 10px;
     height: 100%;
     width: ${props => ((props.sizeDiv*100)/200)}%;
 `
