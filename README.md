@@ -12,6 +12,7 @@ O que funciona 🤩:
 - Estilização
 - Rotas
 
+
 O que não funciona 🤧: 
 - Adição de pokemóns a pokedéx
 - Remoção de pokemóns da pokedéx
