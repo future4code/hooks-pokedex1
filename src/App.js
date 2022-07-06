@@ -6,13 +6,13 @@ import { Container } from './style';
 
 function App() {
   return (
-    <Container>
-      <GlobalState>
+    <GlobalState>
+      <Container>
         <GlobalStyle />
         <Router />
         <Footer />
-      </GlobalState>
-    </Container>
+      </Container>
+    </GlobalState>
   )
 }
 

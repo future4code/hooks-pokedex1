@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    outline: 1px solid transparent;
-    padding-top: 10px;
-    margin: 5px;
     overflow: hidden; //esconder o button ultrapassando a borda
     border-radius: 20px;
     background-color: #333333;
@@ -13,23 +10,35 @@ export const Container = styled.div`
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
+    img{
+        width: 75%;
+        height: auto;
+    }
     &:hover{
         box-shadow: rgba(224, 224, 224, 0.3) 0px 48px 100px 0px;
     }
 
     @media only screen and (min-width: 768px){
-        padding-top: 15px;
+        margin-bottom: 15px;
         width: 200px;
-        height: 210px;
+        height: 220px;
+
+        img{
+            width: 65%;
+            height: auto;
+        }
     }
 `
 
 export const ButtonsContainer = styled.div`
+    /* border: 1px solid yellow; */
     width: 100%;
     min-height: 20%;
+    justify-items: stretch;
+    align-items: stretch;
     display: grid;
     grid-template-columns: 1fr 1fr;
     
