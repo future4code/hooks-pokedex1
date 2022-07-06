@@ -18,7 +18,7 @@ const PokemonDetails = () => {
     //const pathParams = useParamas()
     //pathParams.id
 
-    const pokemon = useRequestData(`${BASE_url}pokemon/${id}`)
+    const pokemon = useRequestData(`${BASE_url}/pokemon/${id}`)
 
     console.log(pokemon)
 

@@ -7,6 +7,7 @@ export const Container = styled.div`
     color: silver;
     width: 180px;
     height: 200px;
+    /* opacity: 0.3; */
     
     display: flex;
     flex-direction: column;

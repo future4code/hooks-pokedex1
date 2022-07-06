@@ -16,6 +16,8 @@ export const GlobalState = (props) => {
     const [inputSelect, setInputSelect] = useState('')
     // const [type, setType] = useState([])
 
+
+
     useEffect(() => {
         getPokemonList()
     }, [pokedex, offset])
