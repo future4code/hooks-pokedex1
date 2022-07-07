@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { BASE_url } from '../constants';
-import { useRequestData } from '../hooks/useRequestData';
 import GlobalStateContext from "./GlobalStateContext";
 
 
@@ -27,7 +26,6 @@ export const GlobalState = (props) => {
         await axios.get(`${BASE_url}/pokemon?offset=${offset}&limit=${limit}`)
             .then(res => {
                 getPokemonListChecked(res.data.results)
-                // console.log(res.data.results)
             })
             .catch(err => {
                 console.log(err)
@@ -88,13 +86,21 @@ export const GlobalState = (props) => {
         setInputSelect(ev.target.value)
     }
 
-  
+    const checkPokedex = (id) => {
+        const find = pokedex?.find(url => { //verifica se achou o pokemon na pokedex
+            if (`${BASE_url}/pokemon/${id}` === url) {
+                return true
+            }
+        })
+        return find
+    }
 
     return <GlobalStateContext.Provider
         value={{
             pokemonList, pokedex, addPokemon, removePokemon,
             offset, goToNextPage, goToPrevioustPage, 
-            inputSearch, onChangeSearch, inputSelect, onChangeSelect
+            inputSearch, onChangeSearch, inputSelect, 
+            onChangeSelect, checkPokedex
         }}>
         {props.children}
     </GlobalStateContext.Provider>

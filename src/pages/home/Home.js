@@ -1,6 +1,6 @@
 import Header from "../../components/header/Header";
 import PokemonCard from "../../components/pokemonCard/PokemonCard";
-import { Body, Container, Pages, BodyGrid } from "./styleHome";
+import { Body, Container, BodyGrid } from "./styleHome";
 import pokebolaIcon from '../../imgs/pokedex-icon.png';
 import { goToPokedexScreen } from "../../routes/coordinator";
 import { useContext } from "react";
