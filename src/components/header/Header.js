@@ -8,13 +8,14 @@ const Header = (props) => {
     return (
         <Container>
             <h1>{props.title}</h1>
-            {!props.addOrRemove
+            {!props.chooseFunction
                 ? <Button onClick={() => props.goToScreen(navigate)} >
                     <img src={props.imgIcon} alt='pokebola' /></Button>
                 : <>
                     <Button onClick={() => props.goToScreen(navigate)} >
                         <img src={props.imgIcon} alt='pokebola' /></Button>
-                    <AddButton onClick={() => props.addOrRemove(navigate)} >
+                    <AddButton onClick={() => props.chooseFunction()} >
+                        {props.teste ? 'Remover' : 'Adicionar'}
                         <img src={imgAddButton} alt='pokebola' /></AddButton>
                 </>
             }

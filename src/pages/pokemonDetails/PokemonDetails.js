@@ -1,31 +1,43 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import Header from "../../components/header/Header";
 import { BASE_url } from "../../constants";
-import { goToPokedexScreen, goToPokemonListScreen } from "../../routes/coordinator";
+import { goToPokemonListScreen } from "../../routes/coordinator";
 import { Container, DivStat, DivStats, DivTeste, ImgBack, Div, Body, DivTypes, DivAbilities, Div2 } from "./stylePokemonDetails";
 import pokemonIcon from '../../imgs/pokemon-icon.png';
 import pokebolaClosed from '../../imgs/pokebola-closed.png';
 import pokebolaOpened from '../../imgs/pokebola-opened.png';
 import { useParams } from "react-router-dom";
 import { useRequestData } from "../../hooks/useRequestData";
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 
 const PokemonDetails = () => {
     // const [openPokebola, setOpenPokebola] = useState(false)
-    // const [pokemon, setPokemon] = useState({})
+
     const { id } = useParams()
     //const pathParams = useParamas()
     //pathParams.id
 
     const pokemon = useRequestData(`${BASE_url}/pokemon/${id}`)
 
-    console.log(pokemon)
+    const { addPokemon, removePokemon, checkPokedex } = useContext(GlobalStateContext)
+
+    const teste = checkPokedex(id)
+
+    const chooseFunction = () => {
+        const isTrue = checkPokedex(id)
+        if(isTrue){
+            return removePokemon(`${BASE_url}/pokemon/${id}`)
+        } else {
+            return addPokemon(`${BASE_url}/pokemon/${id}`)
+        }
+    }
 
     return (
         <Container>
             <Header title={pokemon?.name} imgIcon={pokemonIcon}
-                goToScreen={goToPokemonListScreen} addOrRemove={goToPokedexScreen} />
+                goToScreen={goToPokemonListScreen} teste={teste}
+                chooseFunction={chooseFunction} />
 
             <Body>
                 {/* {!openPokebola 
