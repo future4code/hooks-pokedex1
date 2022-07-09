@@ -14,6 +14,8 @@ O que funciona 🤩:
 - Adição de pokemóns a pokedéx
 - Remoção de pokemóns da pokedéx
 - Visualização de detalhes
+- Input de pesquisa
+- Requisição
 
 O que não funciona 🤧: 
 - Botão de Adicionar/Remover em Detalhes
