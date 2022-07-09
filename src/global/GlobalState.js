@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { BASE_url } from '../constants';
-import { useRequestData } from '../hooks/useRequestData';
 import GlobalStateContext from "./GlobalStateContext";
 
 
 export const GlobalState = (props) => {
     const [pokemonList, setPokemonList] = useState([])
     const [pokedex, setPokedex] = useState([])
+    // const [pokedex, setPokedex] = useState(JSON.parse(localStorage.getItem("pokedex")) && JSON.parse(localStorage.getItem("pokedex")) )
+    //inicializa a pokedex com o que tiver no localStorage
 
     const [offset, setOffset] = useState(0)
     const [limit, setLimit] = useState(20)
@@ -16,10 +17,17 @@ export const GlobalState = (props) => {
     const [inputSelect, setInputSelect] = useState('')
     // const [type, setType] = useState([])
 
-
+    const [checkHeader, setCheckHeader] = useState(false)
+    const [idDetails, setIdDetails] = useState(0)
+    
+    useEffect(() =>{
+        savePokedex()
+        getPokedex()
+    }, [])
 
     useEffect(() => {
         getPokemonList()
+        savePokedex()
     }, [pokedex, offset])
 
 
@@ -27,7 +35,6 @@ export const GlobalState = (props) => {
         await axios.get(`${BASE_url}/pokemon?offset=${offset}&limit=${limit}`)
             .then(res => {
                 getPokemonListChecked(res.data.results)
-                // console.log(res.data.results)
             })
             .catch(err => {
                 console.log(err)
@@ -46,6 +53,17 @@ export const GlobalState = (props) => {
             }
         })
         setPokemonList(updatePokemonList)
+    }
+
+    const savePokedex = () => {
+        const pokedexFinalList = [...pokedex]
+        localStorage.setItem("pokedex", JSON.stringify(pokedexFinalList))
+    }
+
+    const getPokedex = () => {
+        const pokedexList = localStorage.getItem("pokedex")
+        const pokedexFinalList = JSON.parse(pokedexList)
+        setPokedex(pokedexFinalList)
     }
 
     const addPokemon = (url) => {
@@ -87,14 +105,27 @@ export const GlobalState = (props) => {
     const onChangeSelect = (ev) => {
         setInputSelect(ev.target.value)
     }
+    
 
-  
+    const checkPokedex = () => {
+        const find = pokedex?.find(url => { //verifica se achou o pokemon na pokedex
+            if (`${BASE_url}/pokemon/${idDetails}` === url) {
+                return true
+            } else {
+                return false
+            }
+        })
+        setCheckHeader(find)
+
+    }
 
     return <GlobalStateContext.Provider
         value={{
             pokemonList, pokedex, addPokemon, removePokemon,
             offset, goToNextPage, goToPrevioustPage, 
-            inputSearch, onChangeSearch, inputSelect, onChangeSelect
+            inputSearch, onChangeSearch, inputSelect, 
+            onChangeSelect, checkPokedex, checkHeader,
+            setIdDetails
         }}>
         {props.children}
     </GlobalStateContext.Provider>

@@ -6,17 +6,19 @@ Nome dos integrantes 👥:
 - Mizael Santos
 - Verônica Cruz
 
-Link do Surge: https://fancy-learning.surge.sh
+Link do Surge: https://five-spot.surge.sh
 
 O que funciona 🤩:
 - Estilização
 - Rotas
-- Botão de adicionar 
-- Botão de remover 
+- Adição de pokemóns a pokedéx
+- Remoção de pokemóns da pokedéx
+- Visualização de detalhes
 - Input de pesquisa
 - Requisição
 
 O que não funciona 🤧: 
-- Adição de pokemóns a pokedéx
-- Remoção de pokemóns da pokedéx
-- Visualização de detalhes
+- Botão de Adicionar/Remover em Detalhes
+- LocalStorage
+
+
