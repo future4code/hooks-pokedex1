@@ -11,9 +11,12 @@ Link do Surge: https://five-spot.surge.sh
 O que funciona 🤩:
 - Estilização
 - Rotas
-
-
-O que não funciona 🤧: 
 - Adição de pokemóns a pokedéx
 - Remoção de pokemóns da pokedéx
 - Visualização de detalhes
+
+O que não funciona 🤧: 
+- Botão de Adicionar/Remover em Detalhes
+- LocalStorage
+
+
