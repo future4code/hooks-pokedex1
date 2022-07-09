@@ -11,7 +11,6 @@ const PokemonCard = (props) => {
 
     const { addPokemon } = useContext(GlobalStateContext)
 
-    // console.log(pokemon)
     return (
         <Container>
             <img src={pokemon?.sprites.front_default} alt={pokemon?.name} />

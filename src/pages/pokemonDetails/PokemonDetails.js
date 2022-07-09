@@ -20,24 +20,20 @@ const PokemonDetails = () => {
 
     const pokemon = useRequestData(`${BASE_url}/pokemon/${id}`)
 
-    const { addPokemon, removePokemon, checkPokedex } = useContext(GlobalStateContext)
+    const { addPokemon, removePokemon, checkHeader, setIdDetails } = useContext(GlobalStateContext)
 
-    const teste = checkPokedex(id)
-
-    const chooseFunction = () => {
-        const isTrue = checkPokedex(id)
-        if(isTrue){
-            return removePokemon(`${BASE_url}/pokemon/${id}`)
-        } else {
-            return addPokemon(`${BASE_url}/pokemon/${id}`)
-        }
-    }
+    setIdDetails(id)
 
     return (
         <Container>
-            <Header title={pokemon?.name} imgIcon={pokemonIcon}
-                goToScreen={goToPokemonListScreen} teste={teste}
-                chooseFunction={chooseFunction} />
+            {checkHeader
+                ? <Header title={pokemon?.name} imgIcon={pokemonIcon}
+                    goToScreen={goToPokemonListScreen} name="Remover"
+                    chooseFunction={removePokemon} />
+                : <Header title={pokemon?.name} imgIcon={pokemonIcon}
+                    goToScreen={goToPokemonListScreen} name="Adicionar"
+                    chooseFunction={addPokemon} />
+            }
 
             <Body>
                 {/* {!openPokebola 

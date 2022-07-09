@@ -7,6 +7,8 @@ import GlobalStateContext from "./GlobalStateContext";
 export const GlobalState = (props) => {
     const [pokemonList, setPokemonList] = useState([])
     const [pokedex, setPokedex] = useState([])
+    // const [pokedex, setPokedex] = useState(JSON.parse(localStorage.getItem("pokedex")) && JSON.parse(localStorage.getItem("pokedex")) )
+    //inicializa a pokedex com o que tiver no localStorage
 
     const [offset, setOffset] = useState(0)
     const [limit, setLimit] = useState(20)
@@ -15,10 +17,17 @@ export const GlobalState = (props) => {
     const [inputSelect, setInputSelect] = useState('')
     // const [type, setType] = useState([])
 
-
+    const [checkHeader, setCheckHeader] = useState(false)
+    const [idDetails, setIdDetails] = useState(0)
+    
+    useEffect(() =>{
+        savePokedex()
+        getPokedex()
+    }, [])
 
     useEffect(() => {
         getPokemonList()
+        savePokedex()
     }, [pokedex, offset])
 
 
@@ -44,6 +53,17 @@ export const GlobalState = (props) => {
             }
         })
         setPokemonList(updatePokemonList)
+    }
+
+    const savePokedex = () => {
+        const pokedexFinalList = [...pokedex]
+        localStorage.setItem("pokedex", JSON.stringify(pokedexFinalList))
+    }
+
+    const getPokedex = () => {
+        const pokedexList = localStorage.getItem("pokedex")
+        const pokedexFinalList = JSON.parse(pokedexList)
+        setPokedex(pokedexFinalList)
     }
 
     const addPokemon = (url) => {
@@ -85,14 +105,18 @@ export const GlobalState = (props) => {
     const onChangeSelect = (ev) => {
         setInputSelect(ev.target.value)
     }
+    
 
-    const checkPokedex = (id) => {
+    const checkPokedex = () => {
         const find = pokedex?.find(url => { //verifica se achou o pokemon na pokedex
-            if (`${BASE_url}/pokemon/${id}` === url) {
+            if (`${BASE_url}/pokemon/${idDetails}` === url) {
                 return true
+            } else {
+                return false
             }
         })
-        return find
+        setCheckHeader(find)
+
     }
 
     return <GlobalStateContext.Provider
@@ -100,7 +124,8 @@ export const GlobalState = (props) => {
             pokemonList, pokedex, addPokemon, removePokemon,
             offset, goToNextPage, goToPrevioustPage, 
             inputSearch, onChangeSearch, inputSelect, 
-            onChangeSelect, checkPokedex
+            onChangeSelect, checkPokedex, checkHeader,
+            setIdDetails
         }}>
         {props.children}
     </GlobalStateContext.Provider>
