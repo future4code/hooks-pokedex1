@@ -6,7 +6,7 @@ Nome dos integrantes 👥:
 - Mizael Santos
 - Verônica Cruz
 
-Link do Surge: https://fancy-learning.surge.sh
+Link do Surge: https://five-spot.surge.sh
 
 O que funciona 🤩:
 - Estilização
