@@ -15,7 +15,7 @@ const Header = (props) => {
                     <Button onClick={() => props.goToScreen(navigate)} >
                         <img src={props.imgIcon} alt='pokebola' /></Button>
                     <AddButton onClick={() => props.chooseFunction()} >
-                        {props.teste ? 'Remover' : 'Adicionar'}
+                        {props.name}
                         <img src={imgAddButton} alt='pokebola' /></AddButton>
                 </>
             }
