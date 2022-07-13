@@ -1,16 +1,24 @@
 # POKEDEX
 
-Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+Nome dos integrantes 👥: 
+- Ana Lívia Cruz
+- Fabiana Bastos
+- Mizael Santos
+- Verônica Cruz
 
-Link do Surge: www.link.com.br
+Link do Surge: https://five-spot.surge.sh
 
-O que funciona:
-- Item 1
-- Item 2
+O que funciona 🤩:
+- Estilização
+- Rotas
+- Adição de pokemóns a pokedéx
+- Remoção de pokemóns da pokedéx
+- Visualização de detalhes
+- Input de pesquisa
+- Requisição
 
-O que não funciona: 
-- Item 3
-- Item 4
+O que não funciona 🤧: 
+- Botão de Adicionar/Remover em Detalhes
+- LocalStorage
+
+
